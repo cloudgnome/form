@@ -1,0 +1,20 @@
+{%load staticfiles%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Форма</title>
+	<link rel="stylesheet" href="{%static 'index.css'%}">
+</head>
+<body>
+	<form action="/" method='post'>
+		{%csrf_token%}
+		{%for field in form%}
+			{{field.label_tag}}
+			{{field}}
+			{{field.errors}}
+		{%endfor%}
+		<input type="submit">
+	</form>
+</body>
+</html>
